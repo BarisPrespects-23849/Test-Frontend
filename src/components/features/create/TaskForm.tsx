@@ -8,9 +8,10 @@ import {
   Select,
   MenuItem,
   Chip,
-  Grid
+  Grid,
+  Typography
 } from '@mui/material';
-import { DatePicker } from '@mui/x-date-pickers/DatePicker';
+import { DateTimePicker } from '@mui/x-date-pickers/DateTimePicker';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
 import { useTaskContext } from '../../../context/TaskContext';
@@ -157,12 +158,20 @@ const TaskForm: React.FC<TaskFormProps> = ({ onClose, editTask }) => {
           />
         </Grid>
         <Grid item xs={12}>
+          <Typography variant="subtitle2" gutterBottom>
+            Due Date and Time
+          </Typography>
           <LocalizationProvider dateAdapter={AdapterDateFns}>
-            <DatePicker
-              label="Due Date"
+            <DateTimePicker
+              label="Due Date & Time"
               value={dueDate}
               onChange={(newValue) => setDueDate(newValue)}
-              slotProps={{ textField: { fullWidth: true } }}
+              slotProps={{ 
+                textField: { 
+                  fullWidth: true,
+                  helperText: "Select both date and time for your task" 
+                } 
+              }}
             />
           </LocalizationProvider>
         </Grid>

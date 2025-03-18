@@ -6,7 +6,7 @@ export interface Task {
   description: string;
   status: TaskStatus;
   assignee?: string;
-  dueDate?: Date;
+  dueDate?: Date;  // This already supports date and time
   createdAt: Date;
   updatedAt?: Date;
   tags: string[];
